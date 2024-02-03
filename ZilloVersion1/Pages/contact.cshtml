@@ -1,0 +1,58 @@
+﻿@page
+@model ContactModel
+@{
+    ViewData["Title"] = "Contact Form";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.Taghelpers
+
+
+
+<div class="backgroundAstronaut">
+
+    <div class="flexColumn spaceAround smallPadding smallSideMargin">
+
+
+        <h2 class="white topBottomMargin">Contact Us</h2>
+
+       <form method="post" class="" style="max-width:1200px">
+
+            <div class="form-group topBottomMargin">
+                <label asp-for="Contact.Name" class="white bold">Name</label>
+                <input asp-for="Contact.Name" class="form-control" style="max-width:400px" />
+                <span class="validationMSG" asp-validation-for="Contact.Name"></span>
+            </div>
+
+      
+
+            <div class="form-group topBottomMargin">
+                <label asp-for="Contact.LastName" class="white bold">Last Name</label>
+                <input asp-for="Contact.LastName" class="form-control" style="max-width:400px" />
+                <span class="validationMSG" asp-validation-for="Contact.LastName"></span>
+            </div>
+
+            <div class="form-group topBottomMargin">
+                <label asp-for="Contact.Email" class="white bold">Email Address:</label>
+                <input asp-for="Contact.Email" class="form-control" style="max-width:400px" />
+                <span class="validationMSG" asp-validation-for="Contact.Email"></span>
+            </div>
+
+
+            <div class="form-group topBottomMargin">
+                <label asp-for="Contact.Message" class="white bold">Message</label>
+                <textarea asp-for="Contact.Message" class="form-control" style="height: 6rem"></textarea>
+                <span class="validationMSG" asp-validation-for="Contact.Message"></span>
+            </div>
+      
+
+           <input type="submit" class="button1" />
+       
+
+       </form>
+
+       <p class="white topBottomMargin bold"> You will receive a confirmation email to the email used in the form. </p>
+
+    </div>
+
+</div>
+
+

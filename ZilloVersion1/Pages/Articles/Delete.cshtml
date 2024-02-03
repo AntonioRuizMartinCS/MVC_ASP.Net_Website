@@ -1,0 +1,53 @@
+﻿@page
+@model ZilloVersion1.Pages.Articles.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="smallPadding smallMargin darkBackground roundBorders white">
+
+<h1>Delete</h1>
+
+    <hr />
+
+<h3>Are you sure you want to delete this Article?</h3>
+
+<div style="max-width: 1200px">
+    <h4>Article</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Article.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Body)
+        </dt>
+        <dd class="col-sm-10 preserveWS">
+            @Html.DisplayFor(model => model.Article.Body)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Author)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Article.Author)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Article.Date)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Article.ApprovedArticleId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
+
+</div>

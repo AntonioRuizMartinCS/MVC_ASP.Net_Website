@@ -1,0 +1,78 @@
+﻿@page
+@model ZilloVersion1.Pages.Articles.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="backgroundAstronaut">
+
+  <div class="flexColumn spaceAround smallPadding smallSideMargin">
+
+       <h1 class="white">Submit an Article</h1>
+       
+    
+        <form method="post" enctype="multipart/form-data">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                     <div class="form-group topBottomMargin">
+                        <label asp-for="Article.Title" class="control-label white bold"></label>
+                        <input asp-for="Article.Title" class="form-control" style="max-width: 400px" />
+                        <span asp-validation-for="Article.Title" class="text-danger bold"></span>
+                        </div>
+
+                      <div class="form-group topBottomMargin">
+                        <label asp-for="Article.Body" class="control-label white bold"></label>
+                        <textarea asp-for="Article.Body" class="form-control preserveWS" style="height: 200px; max-width: 1000px ">
+                        </textarea>
+                       <span asp-validation-for="Article.Body" class="text-danger bold"></span>
+                      </div>
+
+                     <div class="form-group topBottomMargin">
+
+                        <label asp-for="Article.Author" class="control-label white bold"></label>
+                        <input asp-for="Article.Author" class="form-control" style="max-width: 400px" />
+                        <span asp-validation-for="Article.Author" class="text-danger bold"></span>
+                     </div>
+
+                    <div class="form-group topBottomMargin">
+                        <label asp-for="Article.Date" class="control-label white bold"></label>
+                        <input asp-for="Article.Date" class="form-control" style="max-width: 400px" />
+                        <span asp-validation-for="Article.Date" class="text-danger bold"></span>
+                    </div>
+
+                    <div class="form-group topBottomMargin">
+                        <label asp-for="Article.ImageDescription" class="control-label white bold"></label>
+                        <input asp-for="Article.ImageDescription" class="form-control" style="max-width: 400px" />
+                        <span asp-validation-for="Article.ImageDescription" class="text-danger bold"></span>
+                    </div>
+
+                    <div class="form-group topBottomMargin">
+                        <label asp-for="Article.ImageData" class="control-label white bold">Upload Image:</label>
+                        <input asp-for="Article.ImageData" class="form-control" type="file" name="file1" multiple="multiple" style="max-width: 400px" />
+                        <span asp-validation-for="Article.ImageData" class="text-danger bold"></span>
+                    </div>
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Submit Article" class="btn btn-primary" />
+            </div>
+
+            <div>
+                <a asp-page="Index" class="noTextDec white bold">Back to List</a>
+            </div>
+        </form>
+   
+   </div>
+
+
+
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

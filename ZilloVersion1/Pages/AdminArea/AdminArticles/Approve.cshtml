@@ -1,0 +1,49 @@
+﻿@page
+@model ZilloVersion1.Pages.AdminArea.ApproveModel
+@{
+}
+
+<div class="smallPadding smallMargin darkBackground roundBorders">
+
+<h1 class="white">Approve</h1>
+
+<h3 class="white">Are you sure you want to approve this submitted article?</h3>
+
+    <div class="white" style="max-width: 1200px">
+    <h4>Article</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Article.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Body)
+        </dt>
+        <dd class="col-sm-10 preserveWS">
+            @Html.DisplayFor(model => model.Article.Body)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Author)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Article.Author)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Article.Date)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Article.ArticleId" />
+        <input type="submit" value="Approve" class="btn btn-success" /> |
+        <a asp-page="./SubmittedArticles">Back to List</a>
+    </form>
+</div>
+
+</div>

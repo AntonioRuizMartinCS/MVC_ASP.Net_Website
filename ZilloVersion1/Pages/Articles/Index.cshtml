@@ -1,0 +1,83 @@
+﻿@page
+@model ZilloVersion1.Pages.Articles.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+    @using Microsoft.AspNetCore.Identity
+    @using ZilloVersion1.Data
+    @inject SignInManager<ApplicationUser> SignInManager
+    @inject UserManager<ApplicationUser> UserManager
+<div class="backgroundAstronaut">
+
+<div class="flexColumn spaceAround alignCenter">
+
+    <h1 class="white">Latest News and articles</h1>
+
+    @*checks if user is logged in. If logged in, is directed to submit an article page, if not will be redirected to login page*@
+
+        @if (SignInManager.IsSignedIn(User))
+        {
+          <p>
+               <a asp-page="Create" class="white bold underline">Submit new article</a>
+          </p>
+        }
+        else
+        {
+                <a asp-page="../Account/Login" class="white bold underline">Submit new article</a>
+
+        }
+
+    <div class="flex spaceAround wrap">
+
+        @*for each loop to display each item Article from the page model*@
+
+      @foreach (var item in Model.Article)
+    {
+        <div class="article">
+
+            
+
+                    <h2 class="centerText">@Html.DisplayFor(modelItem => item.Title)</h2>
+                    <p class="centerText">@Html.DisplayFor(modelItem => item.Author)</p>
+                    <p class="centerText">@Html.DisplayFor(modelItem => item.Date)</p>
+                    <img class="centerElement cardImage" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.ImageData))" alt="@item.ImageDescription" />
+
+                    
+                    @*If the user viewing the page is in role admin, buttons for editing and deleting will be visible*@
+
+                    @if (User.IsInRole("Admin")){
+
+                        <div class="flex spaceAround alignCenter topBottomMargin">
+
+
+                            <button type="button" class="btn btn-warning"><a asp-page="./Edit" asp-route-id="@item.ApprovedArticleId">Edit</a></button>
+
+                            <a asp-page="./Details" asp-route-id="@item.ApprovedArticleId">Details</a>
+
+                            <button type="button" class="btn btn-danger"><a asp-page="./Delete" asp-route-id="@item.ApprovedArticleId">Delete</a></button>
+                        
+
+                        </div>
+                    }
+                    else
+                    {
+
+                        <button type="button" class="btn btn-info centerElement" style="max-width:70px; margin-top: 10px; "><a asp-page="./Details" asp-route-id="@item.ApprovedArticleId">Details</a></button>
+                        
+
+                    }
+
+                       
+           
+        </div>
+    }
+
+    </div>
+
+
+</div>
+
+</div>

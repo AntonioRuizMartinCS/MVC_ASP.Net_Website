@@ -1,0 +1,44 @@
+﻿@page
+@model ZilloVersion1.Pages.Articles.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+
+}
+
+<div class=" darkBackground">
+
+ 
+
+     <div class="flexColumn alignCenter spaceAround smallPadding positionRelative">
+
+        
+
+         <div class="flexColumn spaceAround alignCenter white">
+
+            <h4 class=" topBottomMargin">@Html.DisplayFor(model => model.Article.Title)</h4>
+
+    
+
+            <img class="articleImg" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(Model.Article.ImageData))"  alt="@Model.Article.ImageDescription"/>
+
+            <p class=" bold">@Html.DisplayFor(model => model.Article.Author)</p>
+
+            <p class="bold">@Html.DisplayFor(model => model.Article.Date)</p>
+
+            <p class="topBottomMargin preserveWS" style="max-width: 800px; white-space: pre-wrap; text-align:justify">@Html.DisplayFor(model => model.Article.Body)</p>
+
+   
+       
+         </div>
+
+
+
+         <div>
+ 
+            <a class="bold" asp-page="./Index">Back to List</a>
+         </div>
+
+     </div>
+
+</div>

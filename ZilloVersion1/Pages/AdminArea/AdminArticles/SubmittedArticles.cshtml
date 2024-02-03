@@ -1,0 +1,56 @@
+﻿@page
+@model ZilloVersion1.Pages.AdminArea.SubmittedArticlesModel
+@{
+}
+
+<div class="backgroundAstronaut">
+
+
+<div class="flexColumn alignCenter">
+
+<h1 class="white centerElement topBottomMargin">Articles submitted by users</h1>
+
+
+<div class="flex alignCenter wrap" >
+ 
+
+        @if (Model.Article.Count > 0)
+        {
+
+   
+                @foreach (var item in Model.Article)
+                {
+                    <div class="article" style="max-width: 1000px">
+
+                        <h4 class="centerText">@Html.DisplayFor(modelItem => item.Title)</h4>
+                        <p class="preserveWS" >@Html.DisplayFor(modelItem => item.Body)</p>
+                        <p class="centerText">@Html.DisplayFor(modelItem => item.Author)</p>
+                        <p class="centerText">@Html.DisplayFor(modelItem => item.Date)</p>
+                        <img width="200" class="centerElement" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.ImageData))" alt="@item.ImageDescription" />
+
+                        <div class="flex spaceAround">
+
+
+                           <button type="button" class="btn btn-success"><a asp-page="./Approve" asp-route-id="@item.ArticleId" style="margin-top: 10px">Approve</a></button>
+                        
+
+                        
+                           <button class="btn btn-danger smallSideMargin" type="submit"><a asp-page="./DeleteSubArticle" asp-route-id="@item.ArticleId" style="margin-top: 10px">Delete</a></button>
+                        
+                        
+
+                        </div>
+                        
+                       
+
+                    </div>
+
+                    
+                }
+       
+    }
+
+</div>
+</div>
+
+</div>

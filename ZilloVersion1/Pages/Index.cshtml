@@ -1,0 +1,86 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Identity
+@using ZilloVersion1.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+
+
+
+<div role="img" alt="astrounaut walking over a green desert" class="backgroundAstronaut">
+
+
+    <div class="flex spaceAround alignCenter" style="max-width: 900px; height:80vh">
+
+        <span id="leftArrow" class="material-symbols-outlined roundBorders">
+            chevron_left
+        </span>
+
+        <div id="element1" class="flexColumn alignCenter spaceAround smallSideMargin" style="height: 65vh; max-width: 500px">
+
+            <h1 class="white">Welcome to ZILLO</h1>
+
+        <div class="white slideText">Zillo is a website for young people in the Wirral. It's a place where you can check news and articles on culture, arts, wellbeing advice, latest events, etc. We want to promote the very best of The Wirral and allow young people to express themselves in our website. </div>
+
+        <a class="button1" asp-page="/Articles/Index">News and articles</a>
+
+      </div>
+
+      <div id="element2" class="flexColumn alignCenter spaceAround smallSideMargin invisible" style="height: 65vh; max-width: 500px">     
+
+        <h1 class="white">Get involved with us</h1>
+
+            <div class="white slideText">We want you to feel confortable and use this site as a platform to express yourself. Please feel free to submit an articles about something that you think it should be spoken about. It could be about mental health, arts, an event, hobbies... Basically anything you want! </div>
+
+            @*Checking if the user is logged in, if they are we link to submitting an article page, if not we redirect to login page*@
+
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <a asp-page="/Articles/Create" class="button1">Get involved</a>
+            }
+            else
+            {
+                <a asp-page="/Account/Login" class="button1">Get involved</a>
+
+            }       
+
+      </div>
+
+        <div id="element3" class="flexColumn alignCenter spaceAround smallSideMargin invisible" style="height: 65vh; max-width: 500px">
+
+            <h1 class="white">Contact us!</h1>
+
+            <div class="white slideText">Do you have any ideas about how we could improve Zillo? Do you have any thoughts on some article you have seen on our website? Do you need assistance with your mental health? Feel free contact us using this form!</div>
+
+            <a asp-page="/contact" class="button1">Get in touch</a>
+
+      </div>
+
+
+        <span id="rightArrow" class="material-symbols-outlined roundBorders">
+            chevron_right
+        </span>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

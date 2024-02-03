@@ -1,0 +1,62 @@
+﻿@page
+@model ZilloVersion1.Pages.Articles.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class=" smallPadding smallSideMargin darkBackground white">
+
+<h1>Edit</h1>
+
+<h4>Article</h4>
+<hr />
+
+    <form method="post" enctype="multipart/form-data" style="max-width: 1200px">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Article.ApprovedArticleId" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Article.ImageData" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Article.ImageDescription" />
+ 
+            <div class="form-group topBottomMargin">
+                <label asp-for="Article.Title" class="control-label"></label>
+            <input asp-for="Article.Title" class="form-control" style="max-width: 400px" />
+                <span asp-validation-for="Article.Title" class="text-danger"></span>
+            </div>
+        <div class="form-group topBottomMargin">
+                <label asp-for="Article.Body" class="control-label"></label>
+                <textarea asp-for="Article.Body" class="form-control" style="height: 200px"></textarea>
+                <span asp-validation-for="Article.Body" class="text-danger"></span>
+            </div>
+        <div class="form-group topBottomMargin">
+                <label asp-for="Article.Author" class="control-label"></label>
+            <input asp-for="Article.Author" class="form-control" style="max-width: 400px" />
+                <span asp-validation-for="Article.Author" class="text-danger"></span>
+            </div>
+
+        <div class="form-group topBottomMargin">
+                <label asp-for="Article.Date" class="control-label"></label>
+            <input asp-for="Article.Date" class="form-control" style="max-width: 400px" />
+                <span asp-validation-for="Article.Date" class="text-danger"></span>
+            </div>
+
+        <div class="form-group topBottomMargin">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

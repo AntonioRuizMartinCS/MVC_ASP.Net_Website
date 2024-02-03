@@ -1,0 +1,93 @@
+﻿@page
+@model ZilloVersion1.Pages.Account.RegisterModel
+@{
+
+    ViewData["Title"] = "Register";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+
+}
+
+
+<div class="backgroundAstronaut">
+
+
+<div class="flexColumn alignCenter spaceAround">
+
+
+        <h2 class="white topBottomMargin">Register</h2>
+
+            <form method="post">
+
+            <h4 class="white topBottomMargin">Create a new account</h4>
+
+                <div class="white bold" asp-validation-summary="All"></div>
+
+                <div class="largeTopBottomMargin flex wrap spaceBetween">
+                <label asp-for="Input.Email" class="white bold"></label>
+                <input asp-for="Input.Email" class="form-control"/>
+                   <span asp-validation-for="Input.Email"></span>
+                </div>
+
+                <div class="largeTopBottomMargin flex wrap spaceBetween">
+                <label asp-for="Input.Password" class="white bold"></label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span class="white bold" asp-validation-for="Input.Password"></span>
+                </div>
+
+                <div class="largeTopBottomMargin flex wrap spaceBetween">
+
+                <label asp-for="Input.ConfirmPassword" class="white bold"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control"  />
+                <span class="white bold" asp-validation-for="Input.ConfirmPassword"></span>
+
+                </div>
+
+                <button type="submit" class="button1">Register</button>
+            </form>
+
+         </div>
+
+</div>
+
+
+@*<div class="flexColumn alignCenter spaceAround">
+
+       <h2 class="white topBottomMargin">Login</h2>
+
+
+          <form method="post">
+
+            <h4 class="white topBottomMargin">Use a local account to log in.</h4>
+
+              <div asp-validation-summary="All"></div>
+
+            <div class="topBottomMargin flex wrap spaceBetween positionRelative">
+
+                <label asp-for="Input.Email"class="white bold"></label>
+             <input asp-for="Input.Email" class="positionAbsolute" style="right: 0px" />
+             <span asp-validation-for="Input.Email"></span>
+            </div>
+
+            <div class="topBottomMargin flex wrap spaceBetween positionRelative">
+
+              <label asp-for="Input.Password" class="white bold"></label>
+                <input asp-for="Input.Password" class="positionAbsolute" style="right: 0px" />
+              <span asp-validation-for="Input.Password"></span>
+            </div>
+
+            <div class="flex spaceAround alignCenter">
+
+            <div class="topBottomMargin">
+              <button class="button1" type="submit">Log in</button>
+            </div>
+
+            <div class="topBottomMargin">
+                    <a class="button1" href="Register">Register</a>
+            </div>
+
+            </div>
+
+          </form>
+
+    </div>
+*@

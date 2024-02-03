@@ -1,0 +1,42 @@
+﻿@page
+@model ZilloVersion1.Pages.AdminArea.AdminUsers.UsersManagementModel
+@{
+}
+
+
+
+<div class="backgroundAstronaut">
+
+
+@if (Model.Users != null) { 
+
+<table class="smallSideMargin">
+    <thead class="topBottomMargin">
+        <tr>
+            <th class="white bold"><h3>Users</h3></th>
+            <th class="white bold"><h3>Action</h3></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @*Display all users by their emails*@
+        @foreach (var item in Model.Users)
+        {
+            //Admin user is not displayed, so it can't be deleted
+            if(item.Email!= "Admin@Chester.ac.uk"){
+                <tr>
+                    <td class="white bold">@item.Email </td>
+                    <td> <form method="post" asp-page-handler="delete" asp-route-id="@item.Id">
+                         <button class="btn btn-danger smallSideMargin" type="submit">Delete</button>
+                    </form></td>
+                     
+                    
+                </tr>
+                    }
+                }
+    </tbody>
+</table>
+
+}
+
+</div>
